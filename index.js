@@ -2,20 +2,20 @@ const mineflayer = require('mineflayer')
 const http = require('http')
 
 http.createServer((req, res) => {
-  res.write('DrippyBot is alive! 🔥')
+  res.write('NEXUS is alive! 🔥')
   res.end()
 }).listen(3000)
 
 function createBot() {
   const bot = mineflayer.createBot({
-    host: 'DevXDarshXRohit.aternos.me',
-    port: 63478,
-    username: 'DrippyBot',
+    host: 'SMPHUB.aternos.me',
+    port: 62932,
+    username: 'NEXUS',
     version: '1.20.1',
     auth: 'offline'
   })
   bot.on('spawn', () => {
-    console.log('Drippy Bot is online! 🔥')
+    console.log('NEXUS is online! 🔥')
     setInterval(() => {
       bot.setControlState('jump', true)
       setTimeout(() => {
