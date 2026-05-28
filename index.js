@@ -15,13 +15,19 @@ function createBot() {
   bot.once('spawn', () => {
     console.log('NEXUS is online! 🔥')
     setTimeout(() => {
-      setInterval(() => {
-        bot.setControlState('jump', true)
+      bot.chat('/register nexus123 nexus123')
+      setTimeout(() => {
+        bot.chat('/login nexus123')
         setTimeout(() => {
-          bot.setControlState('jump', false)
-        }, 500)
-      }, 30000)
-    }, 5000)
+          setInterval(() => {
+            bot.setControlState('jump', true)
+            setTimeout(() => {
+              bot.setControlState('jump', false)
+            }, 500)
+          }, 30000)
+        }, 2000)
+      }, 2000)
+    }, 3000)
   })
   bot.on('kicked', (reason) => {
     console.log('Bot got kicked:', reason)
