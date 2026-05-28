@@ -1,11 +1,9 @@
 const mineflayer = require('mineflayer')
 const http = require('http')
-
 http.createServer((req, res) => {
   res.write('NEXUS is alive! 🔥')
   res.end()
 }).listen(3000)
-
 function createBot() {
   const bot = mineflayer.createBot({
     host: 'SMPHUB.aternos.me',
@@ -25,15 +23,15 @@ function createBot() {
   })
   bot.on('kicked', (reason) => {
     console.log('Bot got kicked:', reason)
-    setTimeout(createBot, 5000)
+    setTimeout(createBot, 60000)
   })
   bot.on('error', (err) => {
     console.log('Error:', err)
-    setTimeout(createBot, 5000)
+    setTimeout(createBot, 60000)
   })
   bot.on('end', () => {
     console.log('Bot disconnected, reconnecting...')
-    setTimeout(createBot, 5000)
+    setTimeout(createBot, 60000)
   })
 }
 createBot()
