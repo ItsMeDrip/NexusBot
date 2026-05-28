@@ -12,14 +12,16 @@ function createBot() {
     version: '1.20.1',
     auth: 'offline'
   })
-  bot.on('spawn', () => {
+  bot.once('spawn', () => {
     console.log('NEXUS is online! 🔥')
-    setInterval(() => {
-      bot.setControlState('jump', true)
-      setTimeout(() => {
-        bot.setControlState('jump', false)
-      }, 500)
-    }, 30000)
+    setTimeout(() => {
+      setInterval(() => {
+        bot.setControlState('jump', true)
+        setTimeout(() => {
+          bot.setControlState('jump', false)
+        }, 500)
+      }, 30000)
+    }, 5000)
   })
   bot.on('kicked', (reason) => {
     console.log('Bot got kicked:', reason)
